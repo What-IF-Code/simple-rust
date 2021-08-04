@@ -3,6 +3,9 @@
    named project1
 */
 
+use std::fmt;
+
+
 fn main() {
     let mut a: u32 = 50;
     let b: u32 = 345;
@@ -64,6 +67,54 @@ fn main() {
     // working with enum
     print_color(Color::Yellow);
     print_color(Color::Blue);
+
+    let item0 = StockItem::new(3, 5);
+    let item1 = StockItem::new(54, 7);
+
+    item0.show();
+    println!("item0 sum: {}\n", item0.sum());
+    item1.show();
+    println!("item1 sum: {}\n", item1.sum());
+
+    println!("item0: {}", item0);
+    println!("item1: {}", item1);
+
+    println!("item0: {:#?}", item0);
+    println!("item1: {:#?}", item1);
+}
+
+// Trait implementation
+impl fmt::Display for StockItem {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "[{}, {}]", self.quantity, self.price)
+    }
+}
+
+
+#[derive(Debug)]
+struct StockItem {
+    quantity: u32,
+    price: u64,
+}
+
+impl StockItem {
+    fn new(quantity: u32, price: u64) -> StockItem {
+        StockItem {
+            quantity,
+            price,
+        }
+    }
+}
+
+impl StockItem {
+    fn show(&self) {
+        println!("Item.quantity: {:?}", self.quantity);
+        println!("Item.price: {:?}", self.price);
+    }
+
+    fn sum(&self) -> u64 {
+        self.quantity as u64 * self.price
+    }
 }
 
 
