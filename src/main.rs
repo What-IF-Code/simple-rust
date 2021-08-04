@@ -11,6 +11,7 @@ fn main() {
     let b: u32 = 345;
     let c: u32 = 120;
     let mut d: u32;
+    let mut e: u32;
     let mut v0 = Vec::new();
 
     for i in 1..1000 {
@@ -33,6 +34,14 @@ fn main() {
     check_number(d);
     d = add(b, c);
     check_number(d);
+
+    e = if d > b {
+        12
+    } else {
+        8
+    };
+
+    check_number(e);
 
     // loop example
     loop {
@@ -146,7 +155,7 @@ fn check_number(a: u32) {
     } else if a > 199 && a < 399 {
         println!("{:?} is huge number!", a);
     } else {
-        println!("{:?} to be honest I don't how big is this number", a);
+        println!("{:?} to be honest, I don't how big is this number", a);
     }
 }
 
