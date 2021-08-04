@@ -3,39 +3,6 @@
    named project1
 */
 
-fn add(a: u32, b: u32) -> u32 {
-    a + b
-}
-
-fn check_number(a: u32) {
-    if a < 99 {
-        println!("{:?} is small number", a);
-    } else if a > 99 && a < 199 {
-        println!("{:?} is big number!", a);
-    } else if a > 199 && a < 399 {
-        println!("{:?} is huge number!", a);
-    } else {
-        println!("{:?} to be honest I don't how big is this number", a);
-    }
-}
-
-fn take(v: Vec<u32>) {
-    println!("v[10]: {} v[100]: {}", v[10], v[100]);
-}
-
-fn name_matcher(n: &str) {
-    // Using match
-    match n {
-        "Ayaz" => println!("Hi Ayaz, I hope you are doing good!"),
-        "Mina" => {
-            println!("Hi Mina, I will do here some other things!");
-            println!("this is the other thing that I;m ddoing here {}", n);
-        },
-        "Hikmet" => println!("Hi Hikmet, I hope you are doing good!"),
-        _ => println!("Nice to meet you {}", n),
-    }
-}
-
 fn main() {
     let mut a: u32 = 50;
     let b: u32 = 345;
@@ -92,4 +59,59 @@ fn main() {
     name_matcher("Mina");
     name_matcher("Hikmet");
     name_matcher("Gunay");
+
+    // ==================================================
+    // working with enum
+    print_color(Color::Yellow);
+    print_color(Color::Blue);
+}
+
+
+enum Color {
+    Magenta,
+    Yellow,
+    Red,
+    Blue,
+}
+
+fn print_color(c: Color) {
+    match c {
+        Color::Magenta => println!("Magenta"),
+        Color::Yellow => println!("Yellow"),
+        Color::Red => println!("Red"),
+        _ => println!("other color"),
+    }
+}
+
+fn add(a: u32, b: u32) -> u32 {
+    a + b
+}
+
+fn check_number(a: u32) {
+    if a < 99 {
+        println!("{:?} is small number", a);
+    } else if a > 99 && a < 199 {
+        println!("{:?} is big number!", a);
+    } else if a > 199 && a < 399 {
+        println!("{:?} is huge number!", a);
+    } else {
+        println!("{:?} to be honest I don't how big is this number", a);
+    }
+}
+
+fn take(v: Vec<u32>) {
+    println!("v[10]: {} v[100]: {}", v[10], v[100]);
+}
+
+fn name_matcher(n: &str) {
+    // Using match
+    match n {
+        "Ayaz" => println!("Hi Ayaz, I hope you are doing good!"),
+        "Mina" => {
+            println!("Hi Mina, I will do here some other things!");
+            println!("this is the other thing that I;m ddoing here {}", n);
+        },
+        "Hikmet" => println!("Hi Hikmet, I hope you are doing good!"),
+        _ => println!("Nice to meet you {}", n),
+    }
 }
