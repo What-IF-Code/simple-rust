@@ -151,6 +151,13 @@ fn main() {
     for num in 1..11 {
         println!("Range item: {}", num);
     }
+
+    println!("==================================================");
+    println!("Iteration using inclusive range with for\n");
+
+    for num in 1..=11 {
+        println!("Range item: {}", num);
+    }
 }
 
 // Trait implementation
