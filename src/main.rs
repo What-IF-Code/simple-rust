@@ -135,6 +135,15 @@ fn main() {
         }
         count_loop += 1;
     }
+
+    println!("==================================================");
+    println!("Iteration with for\n");
+
+    let list = vec![45, 45, 34, 78, 64, 89, 9];
+
+    for l in list {
+        println!("List item: {}", l);
+    }
 }
 
 // Trait implementation
