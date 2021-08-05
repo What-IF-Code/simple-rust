@@ -7,11 +7,16 @@ use std::fmt;
 
 
 fn main() {
+    println!("Good Morning Ayaz!");
     let mut a: u32 = 50;
     let b: u32 = 345;
     let c: u32 = 120;
     let mut d: u32;
-    let mut e: u32;
+    let e: u32;
+
+    println!("==================================================");
+    println!("Ownership Move Example\n");
+
     let mut v0 = Vec::new();
 
     for i in 1..1000 {
@@ -21,9 +26,8 @@ fn main() {
     take(v0);
     // println!("Vector[15]: {}", v0[15]);
 
-    println!("Good Morning Ayaz!");
-    println!("I'll add some numbers!");
-
+    println!("==================================================");
+    println!("I'll add some numbers!\n");
     
     check_number(a);
     check_number(a);
@@ -42,6 +46,9 @@ fn main() {
     };
 
     check_number(e);
+
+    println!("==================================================");
+    println!("Loop Example\n");
 
     // loop example
     loop {
@@ -64,6 +71,9 @@ fn main() {
     println!("result of loop: {}", result);
     println!("Limit reached: {:?}", a);
 
+    println!("==================================================");
+    println!("While Example\n");
+
     while a > 0 {
         if a <= 3 {
             println!("{:?}", a);
@@ -74,18 +84,22 @@ fn main() {
 
     println!("Limit reached: {:?}", a);
 
-    // ==================================================
-    // Using match
+    println!("==================================================");
+    println!("Using Match\n");
 
     name_matcher("Ayaz");
     name_matcher("Gunay");
     name_matcher("Mina");
     name_matcher("Hikmet");
 
-    // ==================================================
-    // working with enum
+    println!("==================================================");
+    println!("Working with enum\n");
+
     print_color(Color::Yellow);
     print_color(Color::Blue);
+
+    println!("==================================================");
+    println!("Working with struct\n");
 
     let item0 = StockItem::new(3, 5);
     let item1 = StockItem::new(54, 7);
@@ -100,6 +114,27 @@ fn main() {
 
     println!("item0: {:#?}", item0);
     println!("item1: {:#?}", item1);
+
+    println!("==================================================");
+    println!("Loop with label\n");
+
+    let mut count_loop = 0;
+    'a: loop {
+        println!("Loop a");
+        
+        'b: loop {
+            println!("Loop b");
+            if count_loop >= 5 && count_loop < 10 {
+                println!("Loop b break");
+                break;
+            } else if count_loop >= 10 {
+                println!("Exited from loop a");
+                break 'a;
+            }
+            count_loop += 1;
+        }
+        count_loop += 1;
+    }
 }
 
 // Trait implementation
