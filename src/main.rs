@@ -52,11 +52,13 @@ fn main() {
         a += 1;
     }
 
-    let count = 0;
+    let mut count = 0;
     let result = loop {
         if count >= 5 {
             break count + 6;
         }
+
+        count += 1;
     };
 
     println!("result of loop: {}", result);
