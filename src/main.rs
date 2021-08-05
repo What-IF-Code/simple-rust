@@ -52,6 +52,14 @@ fn main() {
         a += 1;
     }
 
+    let count = 0;
+    let result = loop {
+        if count >= 5 {
+            break count + 6;
+        }
+    };
+
+    println!("result of loop: {}", result);
     println!("Limit reached: {:?}", a);
 
     while a > 0 {
@@ -68,9 +76,9 @@ fn main() {
     // Using match
 
     name_matcher("Ayaz");
+    name_matcher("Gunay");
     name_matcher("Mina");
     name_matcher("Hikmet");
-    name_matcher("Gunay");
 
     // ==================================================
     // working with enum
