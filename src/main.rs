@@ -144,6 +144,13 @@ fn main() {
     for l in list {
         println!("List item: {}", l);
     }
+
+    println!("==================================================");
+    println!("Iteration using exclusive range with for\n");
+
+    for num in 1..11 {
+        println!("Range item: {}", num);
+    }
 }
 
 // Trait implementation
