@@ -203,6 +203,17 @@ fn main() {
         tmp_num @ (10 | 20 | 30 | 40) => println!("one of 10 | 20 | 30 | 40: tmp_num: {}", tmp_num),
         _ => println!("Something else"),
     }
+
+    println!("==================================================");
+    println!("Match as expression\n");
+
+    let num3 = match num2 {
+        tmp_num @ 50 ..= 100 => tmp_num,
+        tmp_num @ (10 | 20 | 30 | 40) => tmp_num,
+        _ => 0,
+    };
+
+    println!("Result of match: {}", num3);
 }
 
 // Trait implementation
