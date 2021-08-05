@@ -85,7 +85,7 @@ fn main() {
     println!("Limit reached: {:?}", a);
 
     println!("==================================================");
-    println!("Using Match\n");
+    println!("Using Match option 0\n");
 
     name_matcher("Ayaz");
     name_matcher("Gunay");
@@ -157,6 +157,16 @@ fn main() {
 
     for num in 1..=11 {
         println!("Range item: {}", num);
+    }
+
+    println!("==================================================");
+    println!("Match option 1\n");
+    
+    let num1 = 55;
+
+    match num1 {
+        50 ... 100 => println!("between 50 - 100"),
+        10 | 20 | 30 | 40 => println!("one of 10 | 20 | 30 | 40"),
     }
 }
 
