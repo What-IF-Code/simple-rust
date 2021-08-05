@@ -168,6 +168,17 @@ fn main() {
         50 ... 100 => println!("between 50 - 100"),
         10 | 20 | 30 | 40 => println!("one of 10 | 20 | 30 | 40"),
     }
+
+    println!("==================================================");
+    println!("Match complex option 2\n");
+
+    let pair = (5, 25);
+
+    match pair {
+        (x, 25) => println!("y matches, x: {}", x),
+        (5, y) => println!("x matches, y: {}", y),
+        _ => println!("Something else"),
+    }
 }
 
 // Trait implementation
