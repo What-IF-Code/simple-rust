@@ -165,8 +165,9 @@ fn main() {
     let num1 = 55;
 
     match num1 {
-        50 ... 100 => println!("between 50 - 100"),
+        50 ..= 100 => println!("between 50 - 100"),
         10 | 20 | 30 | 40 => println!("one of 10 | 20 | 30 | 40"),
+        _ => println!("Something else"),
     }
 
     println!("==================================================");
@@ -181,7 +182,7 @@ fn main() {
     }
 
     println!("==================================================");
-    println!("Match more complex option 2\n");
+    println!("Match more complex option 3\n");
 
     let pair2 = (5, -5);
 
@@ -189,6 +190,17 @@ fn main() {
         (x, y) if x == y => println!("Equal"),
         (x, y) if x + y == 0 => println!("Equal zero"),
         (x, _) if x % 2 == 0 => println!("Even"),
+        _ => println!("Something else"),
+    }
+
+    println!("==================================================");
+    println!("Match more complex option 4\n");
+
+    let num2 = 55;
+
+    match num2 {
+        tmp_num @ 50 ..= 100 => println!("between 50 - 100: tmp_num: {}", tmp_num),
+        tmp_num @ (10 | 20 | 30 | 40) => println!("one of 10 | 20 | 30 | 40: tmp_num: {}", tmp_num),
         _ => println!("Something else"),
     }
 }
