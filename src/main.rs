@@ -230,8 +230,8 @@ fn main() {
     let mut mybook = Book::new("Rust from scratch".to_string(), 40);
 
     println!("Old price: {}", mybook.price);
-    mybook = edit_book_price(mybook);
-    // mybook.edit_price(70);
+    // mybook = edit_book_price(mybook);
+    mybook.edit_price(70);
     println!("New price: {}", mybook.price);
     println!("Original data cannot be edited when it was borrowed!");
 }
@@ -256,9 +256,9 @@ impl Book {
         }
     }
 
-    // fn edit_price(&self, p: u32) {
-    //     self.price = p;
-    // }
+    fn edit_price(&mut self, p: u32) {
+        self.price = p;
+    }
 }
 
 fn one_two_three() -> (u32, u32, u32) {
