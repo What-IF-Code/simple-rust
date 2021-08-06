@@ -249,8 +249,8 @@ struct Book {
 }
 
 impl Book {
-    fn new(title: String, price: u32) -> Book {
-        Book {
+    fn new(title: String, price: u32) -> Self {
+        Self {
             title,
             price,
         }
@@ -280,8 +280,8 @@ struct StockItem {
 }
 
 impl StockItem {
-    fn new(quantity: u32, price: u64) -> StockItem {
-        StockItem {
+    fn new(quantity: u32, price: u64) -> Self {
+        Self {
             quantity,
             price,
         }
