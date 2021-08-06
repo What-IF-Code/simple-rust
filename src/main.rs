@@ -278,7 +278,6 @@ fn main() {
         Book {price, ..} => println!("Book2 price = {:?}", price),
     }
 
-    /// Option type usage with match and as function argument
     println!("==================================================");
     println!("Option type usage with match and as function argument\n");
 
@@ -297,15 +296,30 @@ fn main() {
         }
     }
 
+    println!("==================================================");
+    println!("Result type\n");
+
+    let mybook5 = Book::new("Programming Languages".to_string(), 70, None);
+    let search_result = find_author(mybook5);
+
+    match search_result {
+        Ok(book) => println!("Found: {:?}", book),
+        Err(err_msg) => println!("Error: {:?}", err_msg),
+    }
+
 }
 
-// fn edit_book_price(b: Book) -> Book {
-//     let mut book = b;
-//     book.price = 60;
+fn find_author(book: Book) -> Result<Book, String> {
+    let tmp_book = book.clone();
 
-//     return book;
-// }
+    match book.author {
+        Some(author_name) if author_name == "Ayaz" => Ok(tmp_book),
+        None => Err("Author not assigned!".to_owned()),
+        Some(_) => Err("Other Author assigned!".to_owned()),
+    }
+}
 
+#[derive(Debug)]
 struct Book {
     title: String,
     price: u32,
@@ -327,6 +341,14 @@ impl Book {
 
     fn set_title(&mut self, n: String) {
         self.title = n;
+    }
+
+    fn clone(&self) -> Self {
+        Self {
+            title: self.title.clone(),
+            price: self.price,
+            author: self.author.clone(),
+        }
     }
 }
 
