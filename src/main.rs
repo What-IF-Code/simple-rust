@@ -23,6 +23,9 @@ fn main() {
         v0.push(i);
     }
 
+    println!("Vector length: {}", v0.len());
+    println!("Vector called pop(): {:?}", v0.pop());
+
     take(v0);
     // println!("Vector[15]: {}", v0[15]);
 
