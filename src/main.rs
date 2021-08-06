@@ -300,7 +300,7 @@ fn main() {
     println!("Result type\n");
 
     let mybook5 = Book::new("Programming Languages".to_string(), 70, None);
-    let search_result = find_author(mybook5);
+    let search_result: Result<Book, _> = find_author(mybook5);
 
     match search_result {
         Ok(book) => println!("Found: {:?}", book),
