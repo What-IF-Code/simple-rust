@@ -17,7 +17,7 @@ fn main() {
     println!("==================================================");
     println!("Ownership Move Example\n");
 
-    let mut v0 = Vec::new();
+    let mut v0: Vec<u32> = Vec::new();
 
     for i in 1..1000 {
         v0.push(i);
