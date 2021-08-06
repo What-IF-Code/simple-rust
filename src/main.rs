@@ -223,6 +223,34 @@ fn main() {
     println!("x: {}, numbers.0: {}", x, numbers.0);
     println!("y: {}, numbers.1: {}", y, numbers.1);
     println!("z: {}, numbers.2: {}", z, numbers.2);
+
+    println!("==================================================");
+    println!("Experimenting pass by reference\n");
+
+    let mut mybook = Book::new("Rust from scratch".to_string(), 40);
+
+    println!("Old price: {}", mybook.price);
+    // edit_book_price(&mybook);
+    println!("New price: {}", mybook.price);
+    println!("Original data cannot be edited when it was borrowed!");
+}
+
+// fn edit_book_price(b: &Book) {
+//     b.price = 60;
+// }
+
+struct Book {
+    title: String,
+    price: u32,
+}
+
+impl Book {
+    fn new(title: String, price: u32) -> Book {
+        Book {
+            title,
+            price,
+        }
+    }
 }
 
 fn one_two_three() -> (u32, u32, u32) {
