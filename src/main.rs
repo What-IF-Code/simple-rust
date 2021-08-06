@@ -234,9 +234,16 @@ fn main() {
 
     println!("Old price: {}", mybook.price);
     // mybook = edit_book_price(mybook);
-    mybook.edit_price(70);
+    mybook.set_price(70);
     println!("New price: {}", mybook.price);
     println!("Original data cannot be edited when it was borrowed!");
+
+    println!("==================================================");
+    println!("String editing inside struct\n");
+
+    println!("Old title: {}", mybook.title);
+    mybook.set_title("Programming Languages".to_owned());
+    println!("New title: {}", mybook.title);
 }
 
 fn edit_book_price(b: Book) -> Book {
@@ -259,8 +266,12 @@ impl Book {
         }
     }
 
-    fn edit_price(&mut self, p: u32) {
+    fn set_price(&mut self, p: u32) {
         self.price = p;
+    }
+
+    fn set_title(&mut self, n: String) {
+        self.title = n;
     }
 }
 
