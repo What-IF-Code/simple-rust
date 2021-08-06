@@ -214,6 +214,19 @@ fn main() {
     };
 
     println!("Result of match: {}", num3);
+
+    println!("==================================================");
+    println!("Destructuring tuple\n");
+
+    let numbers = one_two_three();
+    let (x, y, z) = one_two_three();
+    println!("x: {}, numbers.0: {}", x, numbers.0);
+    println!("y: {}, numbers.1: {}", y, numbers.1);
+    println!("z: {}, numbers.2: {}", z, numbers.2);
+}
+
+fn one_two_three() -> (u32, u32, u32) {
+    (1, 2, 3)
 }
 
 // Trait implementation
