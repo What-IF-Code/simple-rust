@@ -278,6 +278,7 @@ fn main() {
         Book {price, ..} => println!("Book2 price = {:?}", price),
     }
 
+    /// Option type usage with match and as function argument
     println!("==================================================");
     println!("Option type usage with match and as function argument\n");
 
@@ -333,7 +334,7 @@ fn one_two_three() -> (u32, u32, u32) {
     (1, 2, 3)
 }
 
-// Trait implementation
+/// Trait implementation
 impl fmt::Display for StockItem {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "[{}, {}]", self.quantity, self.price)
@@ -389,6 +390,7 @@ fn add(a: u32, b: u32) -> u32 {
     a + b
 }
 
+/// Check's specific numbers
 fn check_number(a: u32) {
     if a < 99 {
         println!("{:?} is small number", a);
@@ -401,10 +403,12 @@ fn check_number(a: u32) {
     }
 }
 
+/// Takes a vectors ownership
 fn take(v: Vec<u32>) {
     println!("v[10]: {} v[100]: {}", v[10], v[100]);
 }
 
+/// Matches specific names
 fn name_matcher(n: &str) {
     // Using match
     match n {
