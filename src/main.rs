@@ -230,7 +230,7 @@ fn main() {
     println!("==================================================");
     println!("Experimenting pass by reference\n");
 
-    let mut mybook = Book::new("Rust from scratch".to_string(), 40);
+    let mut mybook = Book::new("Rust from scratch".to_string(), 40, Some("Ayaz".to_owned()));
 
     println!("Old price: {}", mybook.price);
     // mybook = edit_book_price(mybook);
@@ -267,16 +267,35 @@ fn main() {
     println!("Partial match for struct\n");
 
     match mybook {
-        Book {price: 70, title} => println!("Book @ 70 = {:?}", title),
+        Book {price: 70, title, author} => println!("Book @ 70 = {:?}, author: {:?}", title, author),
         Book {price, ..} => println!("Book price = {:?}", price),
     }
 
-    let mybook2 = Book::new("Rust from scratch".to_string(), 40);
+    let mybook2 = Book::new("Rust from scratch".to_string(), 40, None);
 
     match mybook2 {
-        Book {price: 70, title} => println!("Book @ 70 = {:?}", title),
+        Book {price: 70, title, author} => println!("Book @ 70 = {:?}, author: {:?}", title, author),
         Book {price, ..} => println!("Book2 price = {:?}", price),
     }
+
+    println!("==================================================");
+    println!("Option type usage with match and as function argument\n");
+
+    let mybook3 = Book::new("Rust from scratch".to_string(), 40, Some("Ayaz".to_owned()));
+    let mybook4 = Book::new("Programming Languages".to_string(), 70, None);
+
+    let book_list = vec![
+        mybook3,
+        mybook4,
+    ];
+
+    for b in book_list {
+        match b.author {
+            Some(author_name) => println!("{} is author of {}", author_name, b.title),
+            None => println!("Author is not present for {}", b.title),
+        }
+    }
+
 }
 
 // fn edit_book_price(b: Book) -> Book {
@@ -289,13 +308,15 @@ fn main() {
 struct Book {
     title: String,
     price: u32,
+    author: Option<String>,
 }
 
 impl Book {
-    fn new(title: String, price: u32) -> Self {
+    fn new(title: String, price: u32, author: Option<String>) -> Self {
         Self {
             title,
             price,
+            author,
         }
     }
 
