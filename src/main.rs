@@ -262,6 +262,21 @@ fn main() {
             _ => println!("Mo match!"),
         }
     }
+
+    println!("==================================================");
+    println!("Partial match for struct\n");
+
+    match mybook {
+        Book {price: 70, title} => println!("Book @ 70 = {:?}", title),
+        Book {price, ..} => println!("Book price = {:?}", price),
+    }
+
+    let mybook2 = Book::new("Rust from scratch".to_string(), 40);
+
+    match mybook2 {
+        Book {price: 70, title} => println!("Book @ 70 = {:?}", title),
+        Book {price, ..} => println!("Book2 price = {:?}", price),
+    }
 }
 
 // fn edit_book_price(b: Book) -> Book {
