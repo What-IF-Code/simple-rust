@@ -125,7 +125,7 @@ fn main() {
     'a: loop {
         println!("Loop a");
         
-        'b: loop {
+        loop {
             println!("Loop b");
             if count_loop >= 5 && count_loop < 10 {
                 println!("Loop b break");
@@ -244,14 +244,32 @@ fn main() {
     println!("Old title: {}", mybook.title);
     mybook.set_title("Programming Languages".to_owned());
     println!("New title: {}", mybook.title);
+
+    println!("==================================================");
+    println!("Enum with data in match\n");
+
+    let color_list: Vec<Color> = vec![
+        Color::Opacity(50),
+        Color::Magenta,
+        Color::Red,
+    ];
+
+    for c in color_list {
+        match c {
+            Color::Magenta => println!("Magenta Selected"),
+            Color::Red => println!("Red Selected"),
+            Color::Opacity(op_value) => println!("Opacity value: {}", op_value),
+            _ => println!("Mo match!"),
+        }
+    }
 }
 
-fn edit_book_price(b: Book) -> Book {
-    let mut book = b;
-    book.price = 60;
+// fn edit_book_price(b: Book) -> Book {
+//     let mut book = b;
+//     book.price = 60;
 
-    return book;
-}
+//     return book;
+// }
 
 struct Book {
     title: String,
@@ -319,6 +337,7 @@ enum Color {
     Yellow,
     Red,
     Blue,
+    Opacity(u32),
 }
 
 fn print_color(c: Color) {
