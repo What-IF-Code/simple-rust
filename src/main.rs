@@ -230,14 +230,17 @@ fn main() {
     let mut mybook = Book::new("Rust from scratch".to_string(), 40);
 
     println!("Old price: {}", mybook.price);
-    // edit_book_price(&mybook);
+    mybook = edit_book_price(mybook);
     println!("New price: {}", mybook.price);
     println!("Original data cannot be edited when it was borrowed!");
 }
 
-// fn edit_book_price(b: &Book) {
-//     b.price = 60;
-// }
+fn edit_book_price(b: Book) -> Book {
+    let mut book = b;
+    book.price = 60;
+
+    return book;
+}
 
 struct Book {
     title: String,
