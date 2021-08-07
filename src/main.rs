@@ -300,13 +300,15 @@ fn main() {
     println!("Result type\n");
 
     let mybook5 = Book::new("Programming Languages".to_string(), 70, None);
-    let search_result: Result<Book, _> = find_author(mybook5);
+    let mybook6 = Book::new("The C Programming Language".to_string(), 70, Some("Ayaz".to_owned()));
+    let _ = unwrapper(mybook5);
+    let _ = unwrapper(mybook6);
+}
 
-    match search_result {
-        Ok(book) => println!("Found: {:?}", book),
-        Err(err_msg) => println!("Error: {:?}", err_msg),
-    }
-
+fn unwrapper(b: Book) -> Result<(), String> {
+    let res: Book = find_author(b)?;
+    println!("Found: {:?}", res);
+    return Ok(());
 }
 
 fn find_author(book: Book) -> Result<Book, String> {
