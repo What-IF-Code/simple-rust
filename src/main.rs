@@ -301,8 +301,19 @@ fn main() {
 
     let mybook5 = Book::new("Programming Languages".to_string(), 70, None);
     let mybook6 = Book::new("The C Programming Language".to_string(), 70, Some("Ayaz".to_owned()));
-    let _ = unwrapper(mybook5);
-    let _ = unwrapper(mybook6);
+    let errr = unwrapper(mybook5);
+
+    match errr {
+        Err(e) => println!("An error occurred: {:?}", e),
+        _ => (),
+    }
+
+    let errrr = unwrapper(mybook6);
+
+    match errrr {
+        Err(e) => println!("An error occurred: {:?}", e),
+        _ => (),
+    }
 }
 
 fn unwrapper(b: Book) -> Result<(), String> {
