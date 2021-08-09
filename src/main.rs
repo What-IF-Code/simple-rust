@@ -329,6 +329,7 @@ fn main() {
 
     for (kb, vb) in books.iter() {
         println!("{} {:?}", kb, vb);
+        vb.test();
     }
 }
 
@@ -348,7 +349,7 @@ fn find_author(book: Book) -> Result<Book, String> {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 struct Book {
     title: String,
     price: u32,
@@ -377,6 +378,15 @@ impl Book {
             title: self.title.clone(),
             price: self.price,
             author: self.author.clone(),
+        }
+    }
+
+    fn test(&self) {
+        match &*self {
+            s if s.title == "Programming" => println!("A Programming book found!"),
+            _ => {
+                println!("A programming book not found");
+            },
         }
     }
 }
