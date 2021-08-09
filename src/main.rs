@@ -4,6 +4,7 @@
 */
 
 use std::fmt;
+use std::collections::HashMap;
 
 
 fn main() {
@@ -313,6 +314,21 @@ fn main() {
     match errrr {
         Err(e) => println!("An error occurred: {:?}", e),
         _ => (),
+    }
+
+    println!("==================================================");
+    println!("Using Hashmap\n");
+
+    let mut books = HashMap::new();
+
+    let mybook7 = Book::new("Programming Languages".to_string(), 70, None);
+    let mybook8 = Book::new("The C Programming Language".to_string(), 70, Some("Ayaz".to_owned()));
+
+    books.insert(1, mybook7);
+    books.insert(2, mybook8);
+
+    for (kb, vb) in books.iter() {
+        println!("{} {:?}", kb, vb);
     }
 }
 
